@@ -2,6 +2,31 @@
 
 using namespace std;
 
+vector<int> twoSumTwoPointerMethod(vector<int> nums, int target) {
+	
+	vector<int> ans;
+	
+	sort(nums.begin(), nums.end());
+	
+	int first;
+	int second = nums.size() - 1;
+	
+	for (first = 0; first != second; first++) {
+		if (nums[first] + nums[second] != target) {
+			while (nums[first] + nums[second] >= target) {
+				second--;
+			}
+		}
+		if (nums[first] + nums[second] == target) {
+			ans.push_back(first);
+			ans.push_back(second);
+			break;
+		}
+	}
+	
+	return ans;
+}
+
 int findRequiredElement(int value, int target) {
     	
    	return (target - value);
@@ -21,7 +46,7 @@ int checkForElement(vector<int>& nums, int current, int req) {
 }
 
 vector<int> twoSum(vector<int>& nums, int target) {
-    vector<int> v(2,0);
+    vector<int> v;
         
     for (int i = 0; i < nums.size(); i++) {
         	
@@ -30,8 +55,8 @@ vector<int> twoSum(vector<int>& nums, int target) {
        	int index = checkForElement(nums, i, req);
         	
        	if (index != -1) {
-       		v[0] = i;
-       		v[1] = index;
+       		v.push_back(i);
+       		v.push_back(index);
        		break;
 		}
 	}
@@ -52,11 +77,16 @@ int main() {
 
 	cin >> target;
 	
-	vector<int> result = twoSum(nums, target);
+	//vector<int> result = twoSum(nums, target);
+	vector<int> result = twoSumTwoPointerMethod(nums, target);
 	
-	for(int i = 0; i < result.size(); i++) {
-		cout << result[i] << " ";
-	} 
+	if (result.size() == 0) {
+		cout<<"No two element with given sum.";
+	} else {
+		for(int i = 0; i < result.size(); i++) {
+			cout << result[i] << " ";
+		}
+	}
 	
 	return 0;
 }
