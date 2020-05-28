@@ -12,13 +12,11 @@ int nCube(int n, int arr[]) {
 			
 			for (int k = i; k <= j; k++) {
 				sum += arr[k];
-				cout<<sum<<" "<<arr[k]<<"\t";
 			}
 			cout<<endl;
 			
 			best = max(sum, best); 
 			
-			cout<<best<<endl;
 		}
 	}
 	return best;
@@ -35,7 +33,6 @@ int nSquare(int n, int arr[]) {
 		for (int j = i; j < n; j++) {
 			
 			sum += arr[j];
-			cout<<sum<<" "<<arr[j]<<"\t";
 			best = max(sum, best);
 		}
 	}

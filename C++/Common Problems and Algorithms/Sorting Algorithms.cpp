@@ -17,7 +17,10 @@ void bubbleSort(ll arr[], int n) {
 			if (arr[j] > arr[j + 1]) {
 				swap(arr[j], arr[j + 1]);
 			}
+			
+		
 		}
+		
 	}
 	cout<<"After Bubble Sort : \n";
 	loop(i, n) {
@@ -36,6 +39,8 @@ void selectionSort(ll arr[], int n) {
 				min_index = j;
 			}
 		}
+		
+		
 		swap(arr[min_index], arr[i]);
 	}
 	cout<<"After Selection Sort : \n";
@@ -55,6 +60,9 @@ void insertionSort(ll arr[], int n) {
             arr[j + 1] = arr[j];  
             j--;
         }  
+        loop(i, n) {
+		cout<<arr[i]<<" ";
+	}cout<<endl;
         arr[j + 1] = key;  
     }
 	cout<<"After Insertion Sort : \n";
@@ -111,6 +119,11 @@ void merge(ll arr[], int l, int m, int r)
         j++; 
         k++; 
     } 
+    for (int ind = 0; ind < 10; ind++) {
+	
+        	cout<<arr[ind]<<" ";
+		}
+		cout<<endl;
 } 
 
 //utility function that does merge sort
@@ -129,6 +142,7 @@ void mergeSortUtil(ll arr[], int l, int r)
 
 //function that uses merge sort to sort the array and then prints the array
 void mergeSort(ll arr[], int n) {
+	
 	mergeSortUtil(arr, 0, n - 1);
 	cout<<"After Merge Sort : \n";
 	loop(i, n) {
@@ -216,21 +230,21 @@ int main() {
     cin.tie(NULL);
     cout.tie(NULL);
     
-    int n;
+    int n = 10;
     
-    cin>>n;
+    //cin>>n;
     
-    ll arr[n];
+    ll arr[] = {40, -5, 45, 55, 1, 60, 15, 95, -85, 5};
     
-    loop(i, n) {
+    /*loop(i, n) {
     	cin>>arr[i];
-	}
+	}*/
 	
-	bubbleSort(arr, n);
+	//bubbleSort(arr, n);
 	cout<<endl;
-	selectionSort(arr, n);
+	//selectionSort(arr, n);
 	cout<<endl;
-	insertionSort(arr, n);
+	//insertionSort(arr, n);
 	cout<<endl;
 	mergeSort(arr, n);
 	cout<<endl;
