@@ -22,34 +22,50 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     
-    int test;
+    ll test;
     
     cin>>test;
     
     while (test--) {
-    	ll ts;
     	
-    	cin>>ts;
-    	
-    	if (ts % 2 != 0) {
-    		cout<<ts / 2<<endl;
-		} else {
-			if (ts % 4 == 0) {
-				ll val = ts / 4;
-				if (val % 2 != 0) {
-					cout<<val / 2<<endl;
-				} else {
-					while (true) {
-						ts /= 2;
-						if (ts % 2 != 0) {
-							break;
-						}
-					}
-					cout<<ts / 2<<endl;
-				}
-			} else {
-				cout<<ts / 4 <<endl;
+		ll n;
+		
+		cin>>n;
+		
+		ll arr[n];
+		
+		loop (i, n) {
+			cin>>arr[i];
+		}
+		
+		ll brr[n];
+		
+		loop (i, n) {
+			cin>>brr[i];
+		}
+		
+		bool sorted = true;
+		
+		for (int i = 0; i < n - 1; i++) {
+			if (arr[i + 1] < arr[i]) {
+				sorted = false;
+				break;
 			}
 		}
-    }
+		
+		if (!sorted) {
+			for (int i = 0; i < n - 1; i++) {
+				if (brr[i + 1] != brr[i]) {
+					sorted = true;
+					break;
+				}
+			}
+		}
+		
+		if (sorted) {
+			cout<<"Yes"<<endl;
+		} else {
+		cout<<"No"<<endl;
+		}
+	}
 }
