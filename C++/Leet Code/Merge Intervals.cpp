@@ -8,6 +8,8 @@ vector<vector<int>> merge(vector<vector<int>>& intervals) {
 		
 	multimap<int, int> intervalsMap;
 		
+		//3 5
+		// 3 8
 	for (int i = 0; i < intervals.size(); i++) {
 		intervalsMap.insert({intervals[i][0], intervals[i][1]});
 	}
